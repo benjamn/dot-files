@@ -1,0 +1,21 @@
+[ui]
+username = Ben Newman <bnewman@mozilla.com>
+merge = opendiff-merge
+editor = mate -w
+
+[paths]
+default = http://hg.mozilla.org/mozilla-central/
+
+[extensions]
+alias = 
+hgext.mq =
+
+[diff]
+git = 1
+showfunc = 1
+unified = 8
+
+[alias]
+llog = log --limit 10
+qstatus  = status --rev -2:.
+

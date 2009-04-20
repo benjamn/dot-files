@@ -1,0 +1,21 @@
+_pull_and_merge() {
+    hg pull && pushd $1 && hg pull -u && hg merge
+}
+
+latest_msg() {
+    # grep for a name, find the next summary: line, and trim off the "summary:      "
+    hg heads | grep -i -A 10 "`echo $@`" | grep \^summary: | head -1 | cut -c 14-
+}
+
+_ci_and_push() {
+    # If latest_msg fails the user will be prompted for a message as if none
+    # had been supplied.
+    latest_msg $@ | hg commit -l - && hg push
+}
+
+catchup() {
+    CHILD_REPO=$1; shift
+    _pull_and_merge $CHILD_REPO && _ci_and_push $@
+    popd
+    hg pull
+}
