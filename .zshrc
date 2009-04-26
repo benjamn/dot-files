@@ -55,10 +55,10 @@ alias mv='nocorrect mv'       # no spelling correction on mv
 alias cp='nocorrect cp'
 alias mkdir='nocorrect mkdir'
 alias j=jobs
-if ls -F --color=auto >&/dev/null; then
-    alias ls="ls --color=auto -F"
+if ls -FG --color=auto >&/dev/null; then
+    alias ls="ls --color=auto -FG"
 else
-    alias ls="ls -F"
+    alias ls="ls -FG"
 fi
 alias ll="ls -l"
 alias l.='ls -d .[^.]*'
