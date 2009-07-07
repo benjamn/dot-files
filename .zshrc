@@ -91,6 +91,22 @@ tunnel() {
     esac
 }
 
+abs() {
+    local rel=${1:-.}
+    local p
+    if [ -d $rel ]
+    then
+        pushd $rel > /dev/null
+        p=`pwd`
+        popd > /dev/null
+    else
+        pushd `dirname $rel` > /dev/null
+        p=`pwd`/`basename $rel`
+        popd > /dev/null
+    fi
+    echo $p
+}
+
 source .zsh_hg_cmds
 
 # functions
