@@ -1,5 +1,5 @@
 . $topsrcdir/browser/config/mozconfig
-mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj-ff
+mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj-ff-shark
 ac_add_options --enable-libxul --enable-shark --enable-debug-info-modules
 # ac_add_options --enable-debug --disable-optimize
 ac_add_options --disable-debug --enable-optimize
