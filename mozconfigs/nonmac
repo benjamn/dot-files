@@ -5,4 +5,4 @@ ac_add_options --enable-debug --disable-optimize
 #ac_add_options --disable-debug --enable-optimize
 ac_add_options --enable-shared --disable-static
 mk_add_options MOZ_MAKE_FLAGS="-s -j4"
-mk_add_options AUTOCONF=autoconf213
+mk_add_options AUTOCONF=autoconf2.13

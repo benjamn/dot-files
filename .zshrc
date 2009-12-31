@@ -107,8 +107,6 @@ abs() {
     echo $p
 }
 
-source .zsh_hg_cmds
-
 # functions
 mdc() { mkdir -p "$1" && cd "$1" }
 setenv() { export $1=$2 }  # csh compatibility
