@@ -10,6 +10,7 @@ default = http://hg.mozilla.org/mozilla-central/
 alias = 
 hgext.mq =
 hgext.convert =
+rebase =
 
 [diff]
 git = 1
