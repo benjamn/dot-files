@@ -7,7 +7,6 @@ editor = mate -w
 default = http://hg.mozilla.org/mozilla-central/
 
 [extensions]
-alias = 
 hgext.mq =
 hgext.convert =
 rebase =

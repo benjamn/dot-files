@@ -240,5 +240,4 @@
 (setq-default password-cache-expiry nil)
 
 ;; comment this out for carbon emacs (mac)
-(set-default-font "fixed")
-
+(set-default-font "6x13")
