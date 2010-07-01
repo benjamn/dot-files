@@ -27,6 +27,10 @@
 (autoload 'caml-mode "caml" "Major mode for editing Caml code." t)
 (autoload 'run-caml "inf-caml" "Run an inferior Caml process." t)
 
+;; js-mode
+(autoload 'js-mode "js" "Major mode for editing JavaScript." t)
+(add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
+
 ;; key bindings
 (global-set-key "\M-g" 'goto-line)
 (global-set-key "\M-r" 'toggle-read-only)
