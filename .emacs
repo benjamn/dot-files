@@ -31,6 +31,15 @@
 (autoload 'js-mode "js" "Major mode for editing JavaScript." t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
 
+;; ido.el
+;(require 'ido)
+;(ido-mode t)
+;(setq ido-enable-flex-matching t) ; enable fuzzy matching
+
+;; TextMate
+;(add-to-list 'load-path "~/elisp/textmate.el")
+;(require 'textmate)
+
 ;; key bindings
 (global-set-key "\M-g" 'goto-line)
 (global-set-key "\M-r" 'toggle-read-only)
@@ -245,3 +254,7 @@
 
 ;; comment this out for carbon emacs (mac)
 (set-default-font "6x13")
+
+;; Quora stuff
+(add-to-list 'load-path "~/ans/etc/gtags")
+(require 'gtags)

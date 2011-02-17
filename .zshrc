@@ -1,7 +1,7 @@
 # history
 HISTFILE=~/.zsh_history
-HISTSIZE=5000
-SAVEHIST=1000
+HISTSIZE=50000
+SAVEHIST=10000
 setopt appendhistory autocd extendedglob
 
 # default apps
@@ -123,3 +123,22 @@ shuffle() {
 	done
 	) | sort | sed 's/^[0-9]* //'
 }
+
+apk() {
+    ps ax | grep paster | grep ben | cut -c1-6 | xargs sudo kill
+}
+
+bindkey "^[[3~" delete-char
+bindkey "^[3;5~" delete-char
+bindkey "^?" backward-delete-char
+
+export EDITOR=emacs
+
+source ~/.quorarc
+
+export ANS_TEST_INSTANCE="test_devserver_ben"
+export ANS_DEFAULT_INSTANCE="dwc"
+export ANS_DEFAULT_TEST_INSTANCE=$ANS_TEST_INSTANCE
+
+export EMAIL_ADDRESS="Ben Newman <ben@quora.com>"
+
