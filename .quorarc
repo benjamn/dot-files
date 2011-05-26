@@ -1,0 +1,2 @@
+export ANS_ROOT=/home/ben/ans
+source $ANS_ROOT/etc/bashrc
