@@ -13,7 +13,7 @@
 	template = /home/ben/ans/etc/git-commit-template
 
 [core]
-	editor = "emacs -nw"
+	editor = "emacsclient"
 
 [branch "master"]
     remote = origin

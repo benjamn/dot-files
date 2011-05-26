@@ -1,5 +1,8 @@
+;; Run Emacs as a server.
+(server-start)
+
 ;; Allow inserting unicode chars by codepoint:
-(global-set-key [?\C-#] 'ucs-insert)
+;(global-set-key [?\C-#] 'ucs-insert)
 
 (setq tramp-default-method "scp")
 
@@ -17,8 +20,8 @@
 (add-hook 'text-mode-hook
           '(lambda () (auto-fill-mode 1)))
 
-;; append local elisp dir. to the load-path
-(setq load-path (append load-path '("~/elisp")))
+;; add local elisp dir. to the load-path
+(push "~/elisp" load-path)
 
 (setq inferior-lisp-program "sbcl")
 
@@ -28,7 +31,7 @@
 (autoload 'run-caml "inf-caml" "Run an inferior Caml process." t)
 
 ;; js-mode
-(autoload 'js-mode "js" "Major mode for editing JavaScript." t)
+(require 'js)
 (add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
 
 ;; ido.el
@@ -39,6 +42,8 @@
 ;; TextMate
 ;(add-to-list 'load-path "~/elisp/textmate.el")
 ;(require 'textmate)
+
+(require 'ben)
 
 ;; key bindings
 (global-set-key "\M-g" 'goto-line)
@@ -152,8 +157,8 @@
 ;; Set up the keyboard so the delete key on both the regular keyboard
 ;; and the keypad delete the character under the cursor and to the right
 ;; under X, instead of the default, backspace behavior.
-(global-set-key [delete] 'delete-char)
-(global-set-key [kp-delete] 'delete-char)
+;(global-set-key [delete] 'delete-char)
+;(global-set-key [kp-delete] 'delete-char)
 
 
 ;; Set up mouse wheel
@@ -176,32 +181,31 @@
 (global-font-lock-mode t)
 
 ;; Set default foreground and background colors
-(set-foreground-color "Black")
-(set-background-color "White")
-(set-cursor-color "Blue")
-(set-mouse-color "Black")
-(set-border-color "Black")
+;(set-foreground-color "Black")
+;(set-background-color "White")
+;(set-cursor-color "Blue")
+;(set-mouse-color "Black")
+;(set-border-color "Black")
 
-
-(cond ((fboundp 'global-font-lock-mode)
-       ;; Customize face attributes
-       (setq font-lock-face-attributes
-             ;; Symbol-for-Face Foreground Background Bold Italic Underline
-             '((font-lock-comment-face       "DarkOrchid") ;MediumOrchid
-               (font-lock-string-face        "Firebrick") ;IndianRed 
-               (font-lock-keyword-face       "Blue")      ;Magenta, MediumBlue
-               (font-lock-variable-name-face "Red")     ;OrangeRed
-               (font-lock-type-face          "Black")     
-               ;(font-lock-reference-face     "greenyellow")    ;LimeGreen
-               ;(font-lock-doc-string-face    "Goldenrod")   
-               ))
-       (copy-face 'bold 'font-lock-function-name-face)        
-       ;; Load the font-lock package.
-       (require 'font-lock)
-       ;; Maximum colors
-       (setq font-lock-maximum-decoration t)
-       ;; Turn on font-lock in all modes that support it
-       (global-font-lock-mode t)))
+;(cond ((fboundp 'global-font-lock-mode)
+;       ;; Customize face attributes
+;       (setq font-lock-face-attributes
+;             ;; Symbol-for-Face Foreground Background Bold Italic Underline
+;             '((font-lock-comment-face       "DarkOrchid") ;MediumOrchid
+;               (font-lock-string-face        "Firebrick") ;IndianRed 
+;               (font-lock-keyword-face       "Blue")      ;Magenta, MediumBlue
+;               (font-lock-variable-name-face "Red")     ;OrangeRed
+;               (font-lock-type-face          "Black")     
+;               ;(font-lock-reference-face     "greenyellow")    ;LimeGreen
+;               ;(font-lock-doc-string-face    "Goldenrod")   
+;               ))
+;       (copy-face 'bold 'font-lock-function-name-face)        
+;       ;; Load the font-lock package.
+;       (require 'font-lock)
+;       ;; Maximum colors
+;       (setq font-lock-maximum-decoration t)
+;       ;; Turn on font-lock in all modes that support it
+;       (global-font-lock-mode t)))
 
 ; Faces that may be set with font-lock:
 ; -------------------------------------

@@ -71,7 +71,7 @@ alias po='popd'
 alias pu='pushd'
 alias tsl="tail -f /var/log/syslog"
 alias df="df -hT"
-alias em="emacs -nw"
+alias emacs=emacsclient
 
 alias psrc='pushd `pwd | sed "s/\/obj-ff//"`'
 
@@ -128,11 +128,11 @@ apk() {
     ps ax | grep paster | grep ben | cut -c1-6 | xargs sudo kill
 }
 
-bindkey "^[[3~" delete-char
-bindkey "^[3;5~" delete-char
-bindkey "^?" backward-delete-char
+#bindkey "^[[3~" delete-char
+#bindkey "^[3;5~" delete-char
+#bindkey "^?" backward-delete-char
 
-export EDITOR=emacs
+export EDITOR=emacsclient
 
 source ~/.quorarc
 
