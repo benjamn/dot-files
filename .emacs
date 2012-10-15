@@ -259,6 +259,3 @@
 ;; comment this out for carbon emacs (mac)
 (set-default-font "6x13")
 
-;; Quora stuff
-(add-to-list 'load-path "~/ans/etc/gtags")
-(require 'gtags)

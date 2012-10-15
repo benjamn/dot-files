@@ -71,7 +71,7 @@ alias po='popd'
 alias pu='pushd'
 alias tsl="tail -f /var/log/syslog"
 alias df="df -hT"
-alias emacs=emacsclient
+alias emacs="emacsclient --no-wait"
 
 alias psrc='pushd `pwd | sed "s/\/obj-ff//"`'
 
@@ -134,11 +134,7 @@ apk() {
 
 export EDITOR=emacsclient
 
-source ~/.quorarc
-
-export ANS_TEST_INSTANCE="test_devserver_ben"
-export ANS_DEFAULT_INSTANCE="dwc"
-export ANS_DEFAULT_TEST_INSTANCE=$ANS_TEST_INSTANCE
-
-export EMAIL_ADDRESS="Ben Newman <ben@quora.com>"
-
+# Avoid git/zsh autocompletion slowness issue.
+__git_files () {
+    _wanted files expl 'local files' _files
+}

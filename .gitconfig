@@ -7,10 +7,7 @@
 
 [user]
 	name = Ben Newman
-	email = ben@quora.com
-
-[commit]
-	template = /home/ben/ans/etc/git-commit-template
+	email = benjamn@fb.com
 
 [core]
 	editor = "emacsclient"
