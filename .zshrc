@@ -72,6 +72,7 @@ alias pu='pushd'
 alias tsl="tail -f /var/log/syslog"
 alias df="df -hT"
 alias emacs="emacsclient --no-wait"
+alias py="ipython"
 
 alias psrc='pushd `pwd | sed "s/\/obj-ff//"`'
 

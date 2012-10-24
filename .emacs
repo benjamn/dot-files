@@ -251,11 +251,4 @@
   ;; If there is more than one, they won't work right.
  )
 
-;; Turn off tool-bar
-(tool-bar-mode)
-
 (setq-default password-cache-expiry nil)
-
-;; comment this out for carbon emacs (mac)
-(set-default-font "6x13")
-
