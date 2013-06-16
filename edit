@@ -1,0 +1,6 @@
+#!/usr/bin/env zsh
+
+OLD=$WINDOW
+screen -X select 0
+emacsclient "$@"
+screen -X select $OLD

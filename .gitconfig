@@ -10,7 +10,7 @@
 	email = bn@cs.stanford.edu
 
 [core]
-	editor = "emacsclient"
+	editor = "~/dot-files/edit"
 
 [branch "master"]
     remote = origin
