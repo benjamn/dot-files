@@ -89,6 +89,12 @@ tunnel() {
     xenon)
         eval "$TUNNEL benjamin@xenon.stanford.edu"
         ;;
+    p)
+        eval "$TUNNEL ben@p"
+        ;;
+    o)
+        eval "$TUNNEL ben@o"
+        ;;
     esac
 }
 
