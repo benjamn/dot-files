@@ -71,8 +71,10 @@ alias po='popd'
 alias pu='pushd'
 alias tsl="tail -f /var/log/syslog"
 alias df="df -hT"
-alias emacs="emacsclient --no-wait"
 alias py="ipython"
+
+export EDITOR=~/dot-files/edit
+alias emacs=$EDITOR
 
 alias psrc='pushd `pwd | sed "s/\/obj-ff//"`'
 
@@ -138,8 +140,6 @@ apk() {
 #bindkey "^[[3~" delete-char
 #bindkey "^[3;5~" delete-char
 #bindkey "^?" backward-delete-char
-
-export EDITOR=emacsclient
 
 # Avoid git/zsh autocompletion slowness issue.
 __git_files () {
