@@ -100,6 +100,11 @@ tunnel() {
     esac
 }
 
+newip() {
+    sudo ipconfig set en0 BOOTP
+    sudo ipconfig set en0 DHCP
+}
+
 abs() {
     local rel=${1:-.}
     local p
