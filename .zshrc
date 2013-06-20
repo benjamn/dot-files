@@ -72,6 +72,7 @@ alias pu='pushd'
 alias tsl="tail -f /var/log/syslog"
 alias df="df -hT"
 alias py="ipython"
+alias node="NODE_NO_READLINE=1 rlwrap node"
 
 export EDITOR=~/dot-files/edit
 alias emacs=$EDITOR
