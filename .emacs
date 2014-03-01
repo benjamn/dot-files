@@ -1,6 +1,12 @@
 ;; Run Emacs as a server.
 (server-start)
 
+(require 'package)
+(add-to-list 'package-archives
+             '("marmalade"
+               . "http://marmalade-repo.org/packages/"))
+(package-initialize)
+
 ;; Allow inserting unicode chars by codepoint:
 ;(global-set-key [?\C-#] 'ucs-insert)
 
