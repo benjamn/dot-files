@@ -39,6 +39,17 @@
 ;; js-mode
 (require 'js)
 (add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
+(add-to-list 'auto-mode-alist '("\\.es$" . js-mode))
+(add-to-list 'auto-mode-alist '("\\.es6$" . js-mode))
+(add-to-list 'auto-mode-alist '("\\.jsx$" . js-mode))
+
+;; css-mode
+(add-to-list 'auto-mode-alist '("\\.css$" . css-mode))
+(add-to-list 'auto-mode-alist '("\\.less$" . css-mode))
+
+;; julia-mode
+(require 'julia-mode)
+(add-to-list 'auto-mode-alist '("\\.jl$" . julia-mode))
 
 ;; ido.el
 ;(require 'ido)

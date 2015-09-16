@@ -1,1 +1,8 @@
 --smart-case
+
+--ignore-dir=node_modules/
+--ignore-dir=.build
+
+--ignore-file=match:.js.map
+--ignore-file=match:.md.js
+--ignore-file=match:data.js
