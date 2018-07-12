@@ -3,16 +3,28 @@
     status = auto
     branch = auto
     interactive = auto
-    ui = auto
+	ui = true
 
 [user]
 	name = Ben Newman
-	email = bn@cs.stanford.edu
+	email = ben@benjamn.com
+	signingkey = DCE28F7D2D7A77FF
 
 [core]
 	editor = "~/dot-files/edit"
+	autocrlf = false
+	filemode = false
 
 [branch "master"]
     remote = origin
     merge = refs/heads/master
     rebase = true
+[commit]
+	gpgsign = true
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[http]
+	cookiefile = /Users/ben/.gitcookies
