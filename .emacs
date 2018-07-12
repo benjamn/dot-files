@@ -287,3 +287,5 @@
  )
 
 (setq-default password-cache-expiry nil)
+
+(require 'prelude-numbers)
