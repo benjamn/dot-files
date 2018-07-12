@@ -151,3 +151,6 @@ apk() {
 __git_files () {
     _wanted files expl 'local files' _files
 }
+
+# OPAM configuration
+. /Users/ben/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
