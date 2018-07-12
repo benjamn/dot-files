@@ -2,7 +2,9 @@
 
 --ignore-dir=node_modules/
 --ignore-dir=.build
-
+--ignore-dir=.meteor
+--ignore-dir=web.browser
 --ignore-file=match:.js.map
 --ignore-file=match:.md.js
 --ignore-file=match:data.js
+--ignore-file=match:.cache
