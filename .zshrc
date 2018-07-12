@@ -154,3 +154,6 @@ __git_files () {
 
 # OPAM configuration
 . /Users/ben/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+export NVM_DIR="/Users/ben/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
