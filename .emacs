@@ -54,6 +54,20 @@
 (require 'julia-mode)
 (add-to-list 'auto-mode-alist '("\\.jl$" . julia-mode))
 
+(require 'scala-mode)
+(add-to-list 'auto-mode-alist '("\\.scala$" . scala-mode))
+(add-to-list 'auto-mode-alist '("\\.sbt$" . scala-mode))
+
+(setq processing-location "/usr/local/bin/processing-java")
+(setq processing-application-dir "/Applications/Processing.app")
+(setq processing-sketchbook-dir "~/Documents/Processing")
+(setq processing-output-dir "./build-tmp")
+(defun my-indent-setup ()
+  (c-set-offset 'arglist-intro '+)
+  (c-set-offset 'arglist-close '0)
+  (c-set-offset 'arglist-cont-nonempty '+))
+(add-hook 'processing-mode-hook 'my-indent-setup)
+
 ;; ido.el
 ;(require 'ido)
 ;(ido-mode t)
@@ -254,21 +268,22 @@
 ;; Makes the screen scroll only one line when the cursor moves past the edge.
 (setq scroll-step 1)
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(case-fold-search t)
  '(current-language-environment "English")
  '(global-font-lock-mode t nil (font-lock))
  '(inhibit-startup-screen t)
+ '(package-selected-packages (quote (tide scala-mode processing-mode)))
  '(standard-indent 4)
  '(tab-always-indent nil))
 (custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  )
 
 (setq-default password-cache-expiry nil)
