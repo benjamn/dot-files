@@ -215,8 +215,8 @@
 (global-font-lock-mode t)
 
 ;; Set default foreground and background colors
-;(set-foreground-color "Black")
-;(set-background-color "White")
+;(set-foreground-color "White")
+(set-background-color "Black")
 ;(set-cursor-color "Blue")
 ;(set-mouse-color "Black")
 ;(set-border-color "Black")
@@ -264,6 +264,29 @@
 ;; Displays the name of the file being edited in the title bar.
 (setq frame-title-format "%b")
 
+;; TypeScript mode configuration
+(defun setup-tide-mode ()
+  (interactive)
+  (tide-setup)
+  (setq tide-tsserver-executable "node_modules/typescript/bin/tsserver")
+  (flycheck-mode +1)
+  (setq flycheck-check-syntax-automatically '(save mode-enabled))
+  (eldoc-mode +1)
+  (tide-hl-identifier-mode +1)
+  (setq-default typescript-indent-level 2)
+  (company-mode +1)
+  (setq company-idle-delay 0))
+(add-hook 'typescript-mode-hook #'setup-tide-mode)
+
+;; Fix company-mode color scheme for my dark background
+(require 'color)
+(let ((bg (face-attribute 'default :background)))
+  (custom-set-faces
+   `(company-tooltip ((t (:inherit default :background ,(color-lighten-name bg 20)))))
+   `(company-scrollbar-bg ((t (:background ,(color-lighten-name bg 10)))))
+   `(company-scrollbar-fg ((t (:background ,(color-lighten-name bg 5)))))
+   `(company-tooltip-selection ((t (:inherit font-lock-function-name-face))))
+   `(company-tooltip-common ((t (:inherit font-lock-constant-face))))))
 
 ;; Makes the screen scroll only one line when the cursor moves past the edge.
 (setq scroll-step 1)
@@ -276,7 +299,9 @@
  '(current-language-environment "English")
  '(global-font-lock-mode t nil (font-lock))
  '(inhibit-startup-screen t)
- '(package-selected-packages (quote (tide scala-mode processing-mode)))
+ '(package-selected-packages
+   (quote
+    (markdown-mode find-file-in-project company swift3-mode swift-mode tide scala-mode processing-mode)))
  '(standard-indent 4)
  '(tab-always-indent nil))
 (custom-set-faces
@@ -284,7 +309,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(company-scrollbar-bg ((t (:background "#199919991999"))))
+ '(company-scrollbar-fg ((t (:background "#0ccc0ccc0ccc"))))
+ '(company-tooltip ((t (:inherit default :background "#333333333333"))))
+ '(company-tooltip-common ((t (:inherit font-lock-constant-face))))
+ '(company-tooltip-selection ((t (:inherit font-lock-function-name-face)))))
 
 (setq-default password-cache-expiry nil)
 
