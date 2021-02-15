@@ -46,6 +46,32 @@
 (add-to-list 'auto-mode-alist '("\\.es6$" . js-mode))
 (add-to-list 'auto-mode-alist '("\\.jsx$" . js-mode))
 
+(require 'rust-mode)
+(add-to-list 'auto-mode-alist '("\\.rs$" . rust-mode))
+(add-hook 'rust-mode-hook #'racer-mode)
+(add-hook 'racer-mode-hook #'company-mode)
+(define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
+(setq company-tooltip-align-annotations t)
+(use-package lsp-mode
+             :commands lsp
+             :config (require 'lsp-clients))
+(use-package lsp-ui)
+(use-package toml-mode)
+(use-package rust-mode
+             :hook (rust-mode . lsp))
+(use-package cargo
+             :hook (rust-mode . cargo-minor-mode))
+(use-package flycheck-rust
+             :config (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
+;; https://github.com/racer-rust/emacs-racer/issues/144
+(setq racer-rust-src-path
+      (let* ((sysroot (string-trim
+                       (shell-command-to-string "rustc --print sysroot")))
+             (lib-path (concat sysroot "/lib/rustlib/src/rust/library"))
+             (src-path (concat sysroot "/lib/rustlib/src/rust/src")))
+        (or (when (file-exists-p lib-path) lib-path)
+            (when (file-exists-p src-path) src-path))))
+
 ;; css-mode
 (add-to-list 'auto-mode-alist '("\\.css$" . css-mode))
 (add-to-list 'auto-mode-alist '("\\.less$" . css-mode))
@@ -54,9 +80,9 @@
 (require 'julia-mode)
 (add-to-list 'auto-mode-alist '("\\.jl$" . julia-mode))
 
-(require 'scala-mode)
-(add-to-list 'auto-mode-alist '("\\.scala$" . scala-mode))
-(add-to-list 'auto-mode-alist '("\\.sbt$" . scala-mode))
+;(require 'scala-mode)
+;(add-to-list 'auto-mode-alist '("\\.scala$" . scala-mode))
+;(add-to-list 'auto-mode-alist '("\\.sbt$" . scala-mode))
 
 (setq processing-location "/usr/local/bin/processing-java")
 (setq processing-application-dir "/Applications/Processing.app")
@@ -68,7 +94,7 @@
   (c-set-offset 'arglist-cont-nonempty '+))
 (add-hook 'processing-mode-hook 'my-indent-setup)
 
-;; ido.el
+; ido.el
 ;(require 'ido)
 ;(ido-mode t)
 ;(setq ido-enable-flex-matching t) ; enable fuzzy matching
@@ -277,6 +303,7 @@
   (company-mode +1)
   (setq company-idle-delay 0))
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
+(add-to-list 'auto-mode-alist '("\\.tsx$" . typescript-mode))
 
 ;; Fix company-mode color scheme for my dark background
 (require 'color)
@@ -301,7 +328,7 @@
  '(inhibit-startup-screen t)
  '(package-selected-packages
    (quote
-    (markdown-mode find-file-in-project company swift3-mode swift-mode tide scala-mode processing-mode)))
+    (cargo lsp-ui toml-mode ## yaml-mode lsp-mode racer flycheck-rust rust-mode markdown-mode find-file-in-project company swift3-mode swift-mode tide scala-mode processing-mode)))
  '(standard-indent 4)
  '(tab-always-indent nil))
 (custom-set-faces

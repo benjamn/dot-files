@@ -155,8 +155,10 @@ __git_files () {
 # OPAM configuration
 . /Users/ben/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
-export NVM_DIR="/Users/ben/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/library"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
